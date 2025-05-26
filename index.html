@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from www.gmetrix.net/browsersms4.0//ProjectInstructions46V2.aspx?tstKey=24904&lng=en-US by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Oct 2018 20:00:56 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>IIG Training - Excel Project1</title>
+    <link rel="stylesheet" href="Styles/style.css" />
+    <link rel="stylesheet" href='Styles/ProjectV2.css' />
+
+
+
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+
+</head>
+
+<body>
+    <form method="post"
+        action="http://www.gmetrix.net/browsersms4.0//ProjectInstructions46V2.aspx?tstKey=24904&amp;lng=en-US"
+        id="frmQuestion">
+
+
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9A7FEFD0" />
+        </div>
+
+        <script type="text/javascript">
+
+
+
+            var currentScrollLocation;
+            function ToggleNavigation(elem, ToShow) {
+                if (ToShow == "divSample" || ToShow == "divVideo") {
+                    currentScrollLocation = $(document).scrollTop();
+                    $(document).scrollTop(0);
+                }
+                $(".NavigationSpan").removeClass("tabselected");
+                $(elem).addClass("tabselected");
+                $(".ContentDiv").hide();
+                $("#" + ToShow).show();
+                if (ToShow == "divInstructions") {
+                    $(document).scrollTop(currentScrollLocation);
+                }
+            }
+            $(document).ready(function () {
+
+
+
+
+                try { // hide all programming words
+
+
+                    $('p').filter(':contains("|EndRedWords|")').hide();
+                    $('[color="#ff0000"]').hide();
+
+
+                    $('font').removeAttr('color');
+
+                    $('strong').removeAttr('style');
+                    $('div[dir="rtl"]').addClass('displayInline');
+
+
+                } catch (e) { }
+                try {
+                    $(".HelpButton").each(function () {
+                        $(this).css("display", "inline"); //Hides lightbulb image if test is in testing mode.
+                        $(this).attr("src", "Images/Tip_02.png");
+                        $(this).attr("width", "16px");
+                        $(this).attr("height", "16px");
+                        $(this).attr("alt", "help");
+                        $(this).attr("title", "Click to toggle help");
+
+                        var currentclick = $(this).attr("onclick");
+                        var newclick = currentclick.replace(")", ", this.parentElement.parentElement)");
+                        $(this).attr("onclick", newclick);
+
+                    });
+                } catch (e) { }
+
+
+
+                GetSavedValues();
+                $.each(CheckedValues, function (index, value) {
+                    $('#' + value).prop('checked', true);
+                    $(".Nav" + value).addClass("navselected");
+
+
+
+                });
+            });
+
+            var CheckedValues = [];
+            function GetSavedValues() {
+                //CheckedValues = ["181464","18190"];
+                try {
+                    //stringy = stringy.replace(/\s/g, '');
+
+                    CheckedValues = projectTestCallbackObject.getSavedValues().replace(/\s/g, '').split(',');
+                } catch (e) { }
+            }
+            function SetSavedValues() {
+                //alert(CheckedValues.join(","));
+                try {
+                    projectTestCallbackObject.setSavedValues(CheckedValues.join(","));
+                } catch (e) { }
+            }
+
+            function handleClick(cb) {
+
+
+                if (cb.checked == true) {
+                    $(".Nav" + cb.id).addClass("navselected");
+                    var i = CheckedValues.indexOf(cb.id);
+                    if (i != -1) {
+                        CheckedValues.splice(i, 1);
+                    } // remove first to handle duplicates
+                    CheckedValues.push(cb.id);
+                }
+                else {
+                    $(".Nav" + cb.id).removeClass("navselected");
+                    var ix = CheckedValues.indexOf(cb.id);
+                    if (ix != -1) {
+                        CheckedValues.splice(ix, 1);
+                    }
+                }
+                SetSavedValues();
+            }
+
+
+            function ToggleElement(id, ParentLocation) {
+                $(ParentLocation).find(".help" + id).toggle();
+            }
+
+
+            function LaunchInWindow(uri) {
+                projectTestCallbackObject.launchInWindow(uri);
+            }
+
+        </script>
+        <div class="NavigationContainer">
+
+
+            <div class='NavigationItem' style="text-align: center; font-weight: bold">
+                <a href='#01'>
+                    Project1
+                </a>
+            </div>
+
+            <div class='NavigationItem Navtask1'>
+                <a href='#task1'>
+                    1.
+                    <span><span>Task 1</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask2'>
+                <a href='#task2'>
+                    2.
+                    <span><span>Task 2</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask3'>
+                <a href='#task3'>
+                    3.
+                    <span><span>Task 3</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask4'>
+                <a href='#task4'>
+                    4.
+                    <span><span>Task 4</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask5'>
+                <a href='#task5'>
+                    5.
+                    <span><span>Task 5</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask6'>
+                <a href='#task6'>
+                    6.
+                    <span><span>Task 6</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask7'>
+                <a href='#task7'>
+                    7.
+                    <span><span>Task 7</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask8'>
+                <a href='#task8'>
+                    8.
+                    <span><span>Task 8</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask9'>
+                <a href='#task9'>
+                    9.
+                    <span><span>Task 9</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask10'>
+                <a href='#task10'>
+                    10.
+                    <span><span>Task 10</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask11'>
+                <a href='#task11'>
+                    11.
+                    <span><span>Task 11</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask12'>
+                <a href='#task12'>
+                    12.
+                    <span><span>Task 12</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask13'>
+                <a href='#task13'>
+                    13.
+                    <span><span>Task 13</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask14'>
+                <a href='#task14'>
+                    14.
+                    <span><span>Task 14</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask15'>
+                <a href='#task15'>
+                    15.
+                    <span><span>Task 15</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask16'>
+                <a href='#task16'>
+                    16.
+                    <span><span>Task 16</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask17'>
+                <a href='#task17'>
+                    17.
+                    <span><span>Task 17</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask18'>
+                <a href='#task18'>
+                    18.
+                    <span><span>Task 18</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask19'>
+                <a href='#task19'>
+                    19.
+                    <span><span>Task 19</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask20'>
+                <a href='#task20'>
+                    20.
+                    <span><span>Task 20</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask21'>
+                <a href='#task21'>
+                    21.
+                    <span><span>Task 21</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask22'>
+                <a href='#task22'>
+                    22.
+                    <span><span>Task 22</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask23'>
+                <a href='#task23'>
+                    23.
+                    <span><span>Task 23</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask24'>
+                <a href='#task24'>
+                    24.
+                    <span><span>Task 24</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask25'>
+                <a href='#task25'>
+                    25.
+                    <span><span>Task 25</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask26'>
+                <a href='#task26'>
+                    26.
+                    <span><span>Task 26</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask27'>
+                <a href='#task27'>
+                    27.
+                    <span><span>Task 27</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask28'>
+                <a href='#task28'>
+                    28.
+                    <span><span>Task 28</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask29'>
+                <a href='#task29'>
+                    29.
+                    <span><span>Task 29</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask30'>
+                <a href='#task30'>
+                    30.
+                    <span><span>Task 30</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask31'>
+                <a href='#task31'>
+                    31.
+                    <span><span>Task 31</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask32'>
+                <a href='#task32'>
+                    32.
+                    <span><span>Task 32</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask33'>
+                <a href='#task33'>
+                    33.
+                    <span><span>Task 33</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask34'>
+                <a href='#task34'>
+                    34.
+                    <span><span>Task 34</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask35'>
+                <a href='#task35'>
+                    35.
+                    <span><span>Task 35</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask36'>
+                <a href='#task36'>
+                    36.
+                    <span><span>Task 36</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask37'>
+                <a href='#task37'>
+                    37.
+                    <span><span>Task 37</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask38'>
+                <a href='#task38'>
+                    38.
+                    <span><span>Task 38</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask39'>
+                <a href='#task39'>
+                    39.
+                    <span><span>Task 39</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask40'>
+                <a href='#task40'>
+                    40.
+                    <span><span>Task 40</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask41'>
+                <a href='#task41'>
+                    41.
+                    <span><span>Task 41</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask42'>
+                <a href='#task42'>
+                    42.
+                    <span><span>Task 42</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask43'>
+                <a href='#task43'>
+                    43.
+                    <span><span>Task 43</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask44'>
+                <a href='#task44'>
+                    44.
+                    <span><span>Task 44</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask45'>
+                <a href='#task45'>
+                    45.
+                    <span><span>Task 45</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask46'>
+                <a href='#task46'>
+                    46.
+                    <span><span>Task 46</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask47'>
+                <a href='#task47'>
+                    47.
+                    <span><span>Task 47</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask48'>
+                <a href='#task48'>
+                    48.
+                    <span><span>Task 48</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask49'>
+                <a href='#task49'>
+                    49.
+                    <span><span>Task 49</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask50'>
+                <a href='#task50'>
+                    50.
+                    <span><span>Task 50</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask51'>
+                <a href='#task51'>
+                    51.
+                    <span><span>Task 51</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask52'>
+                <a href='#task52'>
+                    52.
+                    <span><span>Task 52</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask53'>
+                <a href='#task53'>
+                    53.
+                    <span><span>Task 53</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask54'>
+                <a href='#task54'>
+                    54.
+                    <span><span>Task 54</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask55'>
+                <a href='#task55'>
+                    55.
+                    <span><span>Task 55</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask56'>
+                <a href='#task56'>
+                    56.
+                    <span><span>Task 56</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask57'>
+                <a href='#task57'>
+                    57.
+                    <span><span>Task 57</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask58'>
+                <a href='#task58'>
+                    58.
+                    <span><span>Task 58</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask59'>
+                <a href='#task59'>
+                    59.
+                    <span><span>Task 59</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask60'>
+                <a href='#task60'>
+                    60.
+                    <span><span>Task 60</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask61'>
+                <a href='#task61'>
+                    61.
+                    <span><span>Task 61</span></span>
+                </a>
+            </div>
+            <div class='NavigationItem Navtask62'>
+                <a href='#task62'>
+                    62.
+                    <span><span>Task 62</span></span>
+                </a>
+            </div>
+
+
+
+
+
+        </div>
+        <!-- Nội dung-->
+        <div class="instructionContainer">
+            
+            <div id="divInstructions" class="ContentDiv">
+                <div id="GmxTable" style="padding-top: 30px;">
+                    <br style="clear: both;" />
+                    <div class="container">
+                        <h2><a href="Ski Tours.pptx">Project1</a></h2>
+                        <a name='task1' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task1' onclick='handleClick(this);' />
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task1</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>In the file properties, set the title to <b>“Ski Tours”</b>.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task2' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task2' onclick='handleClick(this);' />
+                          
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task2</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>After the “Agenda” slide, create new slides by importing the
+                                            outline from the <b>Corporate Profile</b> document in the <b>Documents</b> folder.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task3' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task3' onclick='handleClick(this);' />
+                          
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task3</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Annual Snowfall” slide, for the text “Annual Snowfall”, change the text fill color to <b>Olive-Green, Accent 3</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task4' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task4' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task4</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Hiking” slide, resize the mountain image to be
+                                            the same size as the other. The exact position of the  image is
+                                            not important.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task5' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task5' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task5</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Emotional Response” slide, delete the <b>“Food/Drink
+”</b> column. Centering the table on the page is not required.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task6' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task6' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task6</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “List of the 10 most valuable brands” slide, apply an animation effect to the
+                                            table so that it <b>flies in from the top-left corner of the
+                                                slide</b>. Set the duration of the animation to <b>2 seconds</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <h2><a href="7723410_173363656_415.pptx">Project2</a></h2>
+
+
+
+                        <a name='task7' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task7' onclick='handleClick(this);' />
+                          
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task7</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Ingredients” layout of the Slide Master, change the first-level
+                                            bullet to the <b>CheckBox</b> image from the <b>Pictures</b> folder.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task8' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task8' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task8</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Set up the slide show to force viewers to advance the slides <b>manually</b>.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task9' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task9' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task9</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Remove hidden properties and personal information from the presentation. Do
+                                            not delete any other content.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task10' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task10' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task10</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide , apply the <b>Inside: Top Left</b> shadow effect to both arrows.
+                                            Set the shadow distance to <b>3 pt</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task11' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task11' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task11</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 5, group the 2 images.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task12' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task12' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task12</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 1, configure the audio to <b>fade in over 2 seconds</b> when the
+                                            user clicks the speaker icon.</p>
+                                        <p>Set the audio to play only once but continuously across multiple slides.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <h2><a href="365_PP_201_Houseboating.pptx">Project3</a></h2>
+
+
+
+                        <a name='task13' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task13' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task13</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the Slide Master, duplicate the “Blank” slide layout. Name the new slide
+                                            layout <b>“Picture with Text”</b>. Insert a <b>Picture</b> placeholder on
+                                            the left and a <b>Text</b> placeholder on the right.</p>
+                                        <p>The exact position and size of these placeholders are not important. Do not
+                                            create a slide based on the new layout.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task14' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task14' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task14</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Configure the print options to print <b>3 copies of Notes Pages</b> for all
+                                            slides. All copies of page 1 must be printed before printing copies of page
+                                            2.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task15' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task15' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task15</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>At the end of the presentation, insert slides from the <a href="365_PP_207_SCUBA.pptx"><b>SCUBA</b></a>
+                                            presentation.</p>
+            
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task16' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task16' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task16</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Houseboating” slide, apply the <b>Bevel Perspective Left, White</b>
+                                            picture style and the <b>Paint Brush</b> artistic effect to the image.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task17' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task17' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task17</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Why Rent a Houseboat?” slide, insert the <a href="Media1.mp4"><b>Media1</b></a> video in the right placeholder.
+                                        </p>
+                                        <p>The exact position and size of this video are not important.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task18' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task18' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task18</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Inventory Sample” slide, configure the <b>Clockwise</b> option
+                                            animation for the chart.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+                        <h2><a href="7723410_173363656_410.pptx">Project4</a></h2>
+
+                        <a name='task19' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task19' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task19</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Create a section named <b>“Student Clubs”</b> that includes only slides 3 to
+                                            5.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task20' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task20' onclick='handleClick(this);' />
+                           
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task20</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 1, add the alt text description <b>“Soccer players”</b> to the image
+                                            in the upper right corner.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task21' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task21' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task21</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 5, in the left space, insert a <b>Vertical Box List</b>
+                                            SmartArt graphic containing the words <b>“Learn”</b>, <b>“Play”</b>, and
+                                            <b>“Socialize”</b> from top to bottom.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task22' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task22' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task22</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 2, use the 3D Models feature to insert the <a href="Glasses.obj"><b>Glasses</b></a> model from
+                                            the <b>3D Objects</b> folder. Change the height of the model to <b>2" (5.08
+                                                cm)</b> and the width to <b>1.78" (4.51 cm)</b>. Place the model in the
+                                            empty rectangle on the right.</p>
+                                        <p>The exact position of the model is not important.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task23' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task23' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task23</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 2, set the animation effect direction for the bulleted list to
+                                            <b>From Left</b> and change the duration to <b>1.5 seconds</b>.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task24' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task24' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task24</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On all slides, set the transition duration to <b>2 seconds</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+                        <h2><a href="365_PP_203_RockCrawling.pptx">Project5</a></h2>
+
+
+                        <a name='task25' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task25' onclick='handleClick(this);' />
+                            
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task25</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 2, insert a footer to display the slide number and
+                                            <b>“www.adventure-works.com”</b>. Apply this footer to all slides except the
+                                            title slide.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task26' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task26' onclick='handleClick(this);' />
+                             
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task26</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 8, format the bulleted list to display in <b>two columns</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task27' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task27' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task27</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 2, insert a <b>Section Zoom</b> link to “Section 3”, and “Section 4”. Place
+                                            the section thumbnails in the black rectangle so they do not overlap.</p>
+                                        <p>The exact position and order of these thumbnails are not important.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task28' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task28' onclick='handleClick(this);' />
+                          
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task28</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 3, change the 3D model view to <b>Left</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task29' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task29' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task29</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On all slides, set the transition effect option to <b>From Left</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task30' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task30' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task30</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 3, apply the <b>Jump & Turn</b> animation effect to the 3D model.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+                        <h2><a href="">Project6</a></h2>
+
+
+                        <a name='task31' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task31' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task31</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Insert a footer to display the slide number and the word <b>“Draft”</b>.
+                                            Apply this footer to all slides except the title slide.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task32' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task32' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task32</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 1, crop the runner image so that the right edge of the image aligns
+                                            with the right edge of the slide.</p>
+                                        <p>Do not change the aspect ratio of the image.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task33' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task33' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task33</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 6, in the content placeholder, create a <b>Line with Markers</b>
+                                            chart that displays the table content.</p>
+                                        <p>You can copy and paste, or manually enter the table data into the chart's
+                                            datasheet.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task34' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task34' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task34</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 5, change the 3D model view to <b>Above Front Right</b>. Then change
+                                            the height of the model to <b>4.5" (11.43 cm)</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task35' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task35' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task35</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Apply the <b>Rotate</b> slide transition effect with the <b>From Left</b>
+                                            effect option to all slides.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+                        <h2><a href="">Project7</a></h2>
+
+                        <a name='task36' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task36' onclick='handleClick(this);' />
+                       
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task36</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Set the print options to print <b>five copies of Notes Pages</b> of the
+                                            presentation in <b>Portrait Orientation</b>. All copies of page 1 must be
+                                            printed before printing copies of page 2.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task37' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task37' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task37</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 1, insert a <b>Slide Zoom</b> link to the “Customer Satisfaction
+                                            Rating” slide. Place the slide zoom thumbnail in the lower right corner of
+                                            the slide.</p>
+                                        <p>The exact position and size of this thumbnail are not important.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task38' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task38' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task38</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 2, align the tops of the shapes. Do not move the images
+                                            horizontally.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task39' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task39' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task39</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 5, adjust the chart to display the <b>data table with legend
+                                                keys</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task40' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task40' onclick='handleClick(this);' />
+                      
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task40</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 6, insert the <b>River</b> video from the <b>Videos</b> folder.
+                                            Place the video to the right of the image.</p>
+                                        <p>The exact position and size of this video are not important.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task41' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task41' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task41</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 4, set the motion path animation effect to <b>Heart</b> for the star
+                                            image.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+                        <h2><a href="">Project8</a></h2>
+
+                        <a name='task42' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task42' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task42</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Create a section named <b>“Structures”</b> that includes only slides 3 and 4.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task43' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task42' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task42</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 5, use the tool on the <b>Draw</b> tab to highlight the text “???”
+                                            with a <b>Yellow, 6 mm</b> highlighter, similar to the image:</p>
+                                        <p>&lt;land34qm&amp;rt;&gt;</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task43' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task43' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task43</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 2, in the content placeholder, insert a <b>Vertical Curved List</b>
+                                            SmartArt graphic. Name the first shape <b>“Structures”</b> and the second
+                                            shape <b>“Perennials”</b>. Delete any unused shapes.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task44' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task44' onclick='handleClick(this);' />
+                         
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task44</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 3, use the 3D Models feature to insert the <b>Fountain</b> model
+                                            from the <b>3D Objects</b> folder. Change the height of the model to <b>4"
+                                                (10.16 cm)</b>. Place the model to the left of the bulleted list.</p>
+                                        <p>The exact position of the model is not important.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task45' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task45' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task45</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Apply the <b>Wipe</b> transition effect with the <b>From Left</b> effect
+                                            option to all slides.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task46' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task46' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task46</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 4, add the <b>Swivel</b> animation effect to the gazebo image.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+                        <h2><a href="">Project9</a></h2>
+
+                        <a name='task47' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task47' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task47</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Hide slide 5.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task48' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task48' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task48</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 1, insert a hyperlink from the text “Trey Research” to
+                                            <b>“http://www.treyresearch.net”</b>.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task49' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task49' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task49</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 2, reverse the stacking order of the screen images so that the
+                                            smartphone image is on top, the tablet is in the middle, and the monitor is
+                                            at the bottom.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task50' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task50' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task50</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 4, change the chart type to <b>Clustered Bar</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task51' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task51' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task51</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On slide 3, convert the bulleted list to a <b>Basic Block List</b> SmartArt
+                                            graphic.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task52' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task52' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task52</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On all slides, set the transition duration to <b>3 seconds</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+                        <h2><a href="">Project10</a></h2>
+                        <a name='task53' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task53' onclick='handleClick(this);' />
+                     
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task53</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the Handout Master, change the left header to display <b>“First Up
+                                                Consultants”</b> and the left footer to display
+                                            <b>“www.firstupconsultants.com”</b>.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task54' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task54' onclick='handleClick(this);' />
+                     
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task54</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>After the “First Up Consultants” slide, insert a <b>Summary Zoom</b> slide
+                                            that links to the “Mission”, “Goals”, “Specialties”, and “Consulting Team”
+                                            slides.</p>
+                                        <p>Do not include a link to the “First Up Consultants” slide in this section.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task55' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task55' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task55</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>Specifically on the “Consulting Team” slide, set the slide background to the
+                                            <b>Hands</b> image from the <b>Pictures</b> folder. Set the background image
+                                            transparency to <b>75%</b>.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task56' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task56' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task56</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “First Up Consultants” slide, convert the text
+                                            “www.firstupconsultants.com” to a hyperlink. Change the display text to
+                                            <b>“Contact Us”</b>.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task57' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task56' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task56</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Specialties” slide, convert the bulleted list to a <b>Segmented
+                                                Cycle</b> SmartArt graphic.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task57' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task57' onclick='handleClick(this);' />
+                      
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task57</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On all slides, set the transition effect option to <b>Wedge</b>.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+                        <h2><a href="">Project11</a></h2>
+                        <a name='task58' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task58' onclick='handleClick(this);' />
+                    
+                        </span>
+                        
+                        <div class="Instruction">
+                            <div class="Title"><span>Task58</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>In the file properties, add <b>“Travel”</b> as a category.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task59' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task59' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task59</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>After the “Extra Activities” slide, create new slides by importing the
+                                            outline from the <b>Destinations</b> document in the <b>Documents</b>
+                                            folder.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task60' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task60' onclick='handleClick(this);' />
+                        
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task60</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Travel Destinations” slide, add the alt text description
+                                            <b>“Ocean”</b> to the image.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task61' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task61' onclick='handleClick(this);' />
+                   
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task61</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Extra Activities” slide, insert a row at the end of the table. In
+                                            that row, enter <b>“Sporting Event”</b> in the “Event” column and
+                                            <b>“$175”</b> in the “Price” column.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+                        <a name='task62' class="Anchor">&nbsp;</a><br />
+                        <span class="CBOffset">
+                            <input type="checkbox" id='task62' onclick='handleClick(this);' />
+                      
+                        </span>
+                        <div class="Instruction">
+                            <div class="Title"><span>Task62</span></div>
+                            <div class="Overview">
+                                <div class="OverviewItem"><span>
+                                        <p>On the “Price Comparison” slide, in the content placeholder, create a <b>3-D
+                                                Clustered Column</b> chart that displays only the table content.</p>
+                                        <p>You can copy and paste, or manually enter the table data into the chart's
+                                            datasheet.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br style="clear: both" />
+
+
+
+
+
+
+                        <br style="clear: both" />
+                        <br style="clear: both" />
+
+                    </div>
+
+                    <br />
+                    <div class="TestName" style="text-align: center">
+                        End of Instructions</div>
+                    <br />
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </form>
+</body>
+
+<!-- Mirrored from www.gmetrix.net/browsersms4.0//ProjectInstructions46V2.aspx?tstKey=24904&lng=en-US by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Oct 2018 20:01:29 GMT -->
+
+</html>
